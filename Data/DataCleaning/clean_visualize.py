@@ -35,7 +35,8 @@ def plot_candlestick(ax, opens, highs, lows, closes, **kargs):
     candlestick2_ohlc(ax=ax, opens=opens, highs=highs, lows=lows, closes=closes,
                       width=width, colorup=color_up, colordown=color_down, alpha=alpha)
 
-if '__main__' == __name__:
+
+def test():
     con = sql.connect(database='..\Data\Bitcoin.db')
     df = pd.read_sql(sql='SELECT * FROM Bitcoin', con=con)
     #df =  df.iloc[1_482_166:1_482_435]
@@ -44,3 +45,7 @@ if '__main__' == __name__:
     plot_candlestick(ax=ax, opens=df['Open'], highs=df['High'], lows=df['Low'], closes=df['Close'])
 
     plt.show()
+
+
+if '__main__' == __name__:
+    test()
