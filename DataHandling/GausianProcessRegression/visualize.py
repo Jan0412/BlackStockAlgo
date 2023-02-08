@@ -1,7 +1,9 @@
+#imports
+import numpy as np
+
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.cm as cmx
-import numpy as np
 
 def plot_uncertainty(x, mu_matrix, cov_matrix, ax, fig, **kwargs):
     cmap = kwargs['cmap'] if 'cmap' in kwargs.keys() else 'viridis'
@@ -25,11 +27,13 @@ def plot_uncertainty(x, mu_matrix, cov_matrix, ax, fig, **kwargs):
     cbar = fig.colorbar(scalarMap)
     cbar.set_label('Uncertainty Factor')
 
+
 def plot_mean(x, mu_matrix, ax, **kwargs):
     alpha = kwargs['alpha'] if 'alpha' in kwargs.keys() else 1
     color =  kwargs['color'] if 'color' in kwargs.keys() else 'red'
 
     ax.plot(x, mu_matrix.ravel(), color=color, alpha=alpha)
+
 
 def plot_multiLines(x, mu_matrix, cov_matrix, num, ax, **kwargs):
     alpha = kwargs['alpha'] if 'alpha' in kwargs.keys() else 0.25
