@@ -1,10 +1,14 @@
+# Imports
 import numpy as np
 import pandas as pd
 import sqlite3 as sql
+
+import time
+
+import matplotlib.pyplot as plt
+
 from itertools import groupby
 from scipy import stats
-import time
-import matplotlib.pyplot as plt
 
 
 def calcVol(close, delta, span=100) -> np.ndarray:

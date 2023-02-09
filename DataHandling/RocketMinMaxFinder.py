@@ -2,10 +2,18 @@
 import numpy as np
 import sqlite3 as sql
 import math
+
 import matplotlib.pyplot as plt
 
 
 def savitzky_golay_smoothing(data, window_size: int, order: int, derivative: int) -> np.ndarray:
+    """
+    :param data:
+    :param window_size:
+    :param order:
+    :param derivative:
+    :return:
+    """
     if window_size % 2 != 1 or window_size < 1:
         raise TypeError('window size must be a positive odd number')
 
@@ -25,6 +33,13 @@ def savitzky_golay_smoothing(data, window_size: int, order: int, derivative: int
 
 
 def get_extrema(data, window_range: int, window_size: int = 21, order: int = 5) -> (np.ndarray, np.ndarray):
+    """
+    :param data:
+    :param window_range:
+    :param window_size:
+    :param order:
+    :return:
+    """
     first_deriv = savitzky_golay_smoothing(data=data, window_size=window_size, order=order, derivative=1)
     second_deriv = savitzky_golay_smoothing(data=data, window_size=window_size, order=order, derivative=2)
 
@@ -43,6 +58,11 @@ def get_extrema(data, window_range: int, window_size: int = 21, order: int = 5) 
 
 
 def find_zero_cut(data: np.ndarray, axis: int = 0) -> np.ndarray:
+    """
+    :param data:
+    :param axis:
+    :return:
+    """
     locs = np.arange(0, data.shape[axis])
     plus = data.take(indices=(locs + 1), mode='clip')
 
@@ -59,6 +79,12 @@ def find_zero_cut(data: np.ndarray, axis: int = 0) -> np.ndarray:
 
 
 def min_period(period: int, max_ids: np.ndarray, min_ids: np.ndarray) -> (np.ndarray, np.ndarray):
+    """
+    :param period:
+    :param max_ids:
+    :param min_ids:
+    :return:
+    """
     tmp = np.concatenate((max_ids, min_ids))
     tmp_index = np.argsort(tmp)
     f = [abs(tmp[tmp_index[i - 1]] - tmp[tmp_index[i]]) > period for i in range(1, tmp_index.shape[0])]

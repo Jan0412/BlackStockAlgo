@@ -1,13 +1,23 @@
 # libs for data handling
-import sqlite3 as sql
 import pandas as pd
 import numpy as np
+
+import sqlite3 as sql
+
 import pywt
 
 # libs for data visualising
 import matplotlib.pyplot as plt
 
 def discrete_wavelet_transform(data:list, wavelet:str,  coeff_level:int=2, mode_th:str='hard', mode_wav:str='periodization'):
+    """
+    :param data:
+    :param wavelet:
+    :param coeff_level:
+    :param mode_th:
+    :param mode_wav:
+    :return:
+    """
     data = np.asarray(data)
 
     madev = lambda d : np.mean(np.absolute(d - np.mean(d)))
@@ -21,14 +31,21 @@ def discrete_wavelet_transform(data:list, wavelet:str,  coeff_level:int=2, mode_
     return pywt.waverec(coeffs=coeff, wavelet=wavelet, mode=mode_wav)
 
 def continuous_wavelet_transform(data, wavelet):
+    """
+    :param data:
+    :param wavelet:
+    :return:
+    """
     scales = pywt.scale2frequency(wavelet=wavelet, scale=np.arange(1, 300)) / 1e-3
     coefs, freq = pywt.cwt(data=data, scales=scales, wavelet=wavelet)
     return np.abs(coefs) ** 2
 
 
-def main():
-    con = sql.connect(database='..\Data\Bitcoin.db')
-    df = pd.read_sql(sql='SELECT Close FROM Bitcoin', con=con)
+PATH_BTC_DB = '../Data/Bitcoin.db'
+
+def test():
+    connection = sql.connect(database=PATH_BTC_DB)
+    df = pd.read_sql(sql='SELECT Close FROM Bitcoin', con=connection)
     df = df['Close'].iloc[:1440].values
 
     original_ary = np.asarray(df)
@@ -62,4 +79,4 @@ def main():
     plt.show()
 
 if __name__ == '__main__':
-    main()
+    test()
