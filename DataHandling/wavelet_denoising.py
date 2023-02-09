@@ -46,7 +46,7 @@ PATH_BTC_DB = '../Data/Bitcoin.db'
 def test():
     connection = sql.connect(database=PATH_BTC_DB)
     df = pd.read_sql(sql='SELECT Close FROM Bitcoin', con=connection)
-    df = df['Close'].iloc[:1440].values
+    df = df['Close'].values
 
     original_ary = np.asarray(df)
     time = np.arange(start=0, stop=original_ary.shape[0])
