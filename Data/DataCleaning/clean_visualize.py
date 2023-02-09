@@ -39,7 +39,6 @@ def plot_candlestick(ax, opens, highs, lows, closes, **kargs):
 def test():
     con = sql.connect(database='..\Data\Bitcoin.db')
     df = pd.read_sql(sql='SELECT * FROM Bitcoin', con=con)
-    #df =  df.iloc[1_482_166:1_482_435]
     _, ax = plt.subplots(nrows=1, ncols=1)
     plot_NaN(values=df['High'], ax=ax)
     plot_candlestick(ax=ax, opens=df['Open'], highs=df['High'], lows=df['Low'], closes=df['Close'])
