@@ -21,6 +21,14 @@
 </details>
 
 ## About The Project 
+The aim of the project is to classify future stock movements by the underlying frequency and strength of the signal. The algorithm is based on a combination of wavelets and CNNs. 
+
+### Triple barrier Labels:
+![TripleBarrierLabeling-img][TripleBarrierLabeling-img]
+
+### Continuous wavelet transform of the data:
+![CWT-img][CWT-img]
+
 
 ### Built With
 
@@ -63,3 +71,6 @@ Feel free to contact me via LinkedIn:
 [GitHub-url]: https://github.com/Jan0412
 [linkedin-shield]:
 [linkedin-url]:
+
+[TripleBarrierLabeling-img]: Images/Test_IMG_TripleBarrierLabeling.png
+[CWT-img]: Images/Test_IMG_CWT.png
