@@ -29,6 +29,8 @@ The aim of the project is to classify future stock movements by the underlying f
 ### Continuous wavelet transform of the data:
 ![CWT-img][CWT-img]
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ### Built With
 
@@ -43,8 +45,12 @@ The aim of the project is to classify future stock movements by the underlying f
 
 ## Usage
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## References
 * Bairui Du, Delmiro Fernandez-Reyes, Paolo Barucca. Image Processing Tools for Financial Time Series Classification (https://arxiv.org/abs/2008.06042)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Contact
@@ -52,6 +58,7 @@ Feel free to contact me via LinkedIn:
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [Tensorflow-logo]: https://img.shields.io/badge/TensorFlow-000000?style=for-the-badge&logo=tensorflow&logoColor=FF6F00
