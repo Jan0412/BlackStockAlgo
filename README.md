@@ -44,6 +44,8 @@ The aim of the project is to classify future stock movements by the underlying f
 ## Usage
 
 ## References
+* Bairui Du, Delmiro Fernandez-Reyes, Paolo Barucca. Image Processing Tools for Financial Time Series Classification (https://arxiv.org/abs/2008.06042)
+
 
 ## Contact
 Feel free to contact me via LinkedIn:
